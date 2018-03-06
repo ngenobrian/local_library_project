@@ -1,0 +1,10 @@
+{% include 'base_generic.html' %}
+
+{% block content %}
+    <h2>All Borrowed books</h2>
+    {% for Book in borrowed %}
+        <ul>
+    <li class="{% if Book.is_overdue %} text-danger{% else %} text-success{% endif %}">{{ Book.book }}({{ Book.due_back }}) - {{ Book.borrower }}</li>
+        </ul>
+    {% endfor %}
+{% endblock %}
